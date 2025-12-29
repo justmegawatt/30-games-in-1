@@ -2,9 +2,9 @@
 
 [ext_resource type="Script" uid="uid://dnklehb4m3f07" path="res://scripts/main_menu/main.gd" id="1_o5qli"]
 [ext_resource type="Texture2D" uid="uid://badf8qh6xst55" path="res://icon.svg" id="2_0wfyh"]
-[ext_resource type="LabelSettings" uid="uid://dcjq3jrps0ssl" path="res://components/label_number.tres" id="3_jyhfs"]
+[ext_resource type="LabelSettings" uid="uid://dcjq3jrps0ssl" path="res://components/text/label_number.tres" id="3_jyhfs"]
 [ext_resource type="Script" uid="uid://5rfd3a2n782m" path="res://scripts/main_menu/game_button.gd" id="3_tbgi4"]
-[ext_resource type="LabelSettings" uid="uid://5f15g2o1l48l" path="res://components/label_title.tres" id="4_tbgi4"]
+[ext_resource type="LabelSettings" uid="uid://5f15g2o1l48l" path="res://components/text/label_title.tres" id="4_tbgi4"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_sugp2"]
 atlas = ExtResource("2_0wfyh")
@@ -49,7 +49,7 @@ custom_minimum_size = Vector2(0, 200)
 layout_mode = 2
 texture = SubResource("AtlasTexture_sugp2")
 script = ExtResource("3_tbgi4")
-game_name = "starting ui"
+game_name = "Fruity Slicey"
 game_number = "1"
 
 [node name="BG" type="ColorRect" parent="MainMenu/CanvasLayer/Control/ScrollContainer/VBoxContainer/GameButton1"]
