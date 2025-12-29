@@ -5,7 +5,7 @@ extends TextureRect
 
 #current games made
 var starting_ui = preload("res://scenes/starting_ui.tscn")
-var fruity_slicey = preload("res://scenes/FruitySlicey.tscn")
+var fruity_slicey = preload("res://scenes/FruitySlicey/FruitySlicey.tscn")
 
 func _ready() -> void:
 	$BG/LabelTitle.text = game_name

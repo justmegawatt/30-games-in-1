@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=3 uid="uid://q4cbspa4rsvc"]
 
-[ext_resource type="Script" uid="uid://dnklehb4m3f07" path="res://scripts/main_menu/main.gd" id="1_wov6f"]
+[ext_resource type="Script" uid="uid://dnklehb4m3f07" path="res://scripts/main_menu/main.gd" id="1_7oe3p"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_jakv2"]
 font_size = 72
@@ -101,7 +101,7 @@ _data = {
 }
 
 [node name="FruitySlicey" type="Node2D"]
-script = ExtResource("1_wov6f")
+script = ExtResource("1_7oe3p")
 
 [node name="StartScreen" type="CanvasLayer" parent="."]
 

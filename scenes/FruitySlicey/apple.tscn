@@ -1,0 +1,180 @@
+[gd_scene load_steps=3 format=3 uid="uid://cvrgox3xj77tf"]
+
+[ext_resource type="Texture2D" uid="uid://7jrw01jwrit1" path="res://art/FruitySlicey/Apple.png" id="1_apg38"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_apg38"]
+size = Vector2(62, 6)
+
+[node name="apple" type="CharacterBody2D"]
+
+[node name="wholeSprite" type="Node2D" parent="."]
+visible = false
+
+[node name="Sprite2D" type="Sprite2D" parent="wholeSprite"]
+texture_filter = 1
+scale = Vector2(4, 4)
+texture = ExtResource("1_apg38")
+
+[node name="sliceHorizontal" type="Node2D" parent="."]
+visible = false
+
+[node name="half1" type="CharacterBody2D" parent="sliceHorizontal"]
+
+[node name="mask" type="ColorRect" parent="sliceHorizontal/half1"]
+clip_children = 1
+offset_left = -141.0
+offset_top = -119.0
+offset_right = 146.0
+offset_bottom = -1.0
+
+[node name="Sprite2D" type="Sprite2D" parent="sliceHorizontal/half1/mask"]
+texture_filter = 1
+position = Vector2(141, 119)
+scale = Vector2(4, 4)
+texture = ExtResource("1_apg38")
+
+[node name="half2" type="CharacterBody2D" parent="sliceHorizontal"]
+
+[node name="mask" type="ColorRect" parent="sliceHorizontal/half2"]
+clip_children = 1
+offset_left = -138.0
+offset_top = -1.0
+offset_right = 149.0
+offset_bottom = 117.0
+
+[node name="Sprite2D" type="Sprite2D" parent="sliceHorizontal/half2/mask"]
+texture_filter = 1
+position = Vector2(138, 1)
+scale = Vector2(4, 4)
+texture = ExtResource("1_apg38")
+
+[node name="sliceVertical" type="Node2D" parent="."]
+
+[node name="half1" type="CharacterBody2D" parent="sliceVertical"]
+
+[node name="mask" type="ColorRect" parent="sliceVertical/half1"]
+clip_children = 1
+offset_left = -141.0
+offset_top = -119.0
+offset_bottom = 105.0
+
+[node name="Sprite2D" type="Sprite2D" parent="sliceVertical/half1/mask"]
+texture_filter = 1
+position = Vector2(141, 119)
+scale = Vector2(4, 4)
+texture = ExtResource("1_apg38")
+
+[node name="half2" type="CharacterBody2D" parent="sliceVertical"]
+
+[node name="mask" type="ColorRect" parent="sliceVertical/half2"]
+clip_children = 1
+offset_top = -119.0
+offset_right = 141.0
+offset_bottom = 105.0
+
+[node name="Sprite2D" type="Sprite2D" parent="sliceVertical/half2/mask"]
+texture_filter = 1
+position = Vector2(0, 119)
+scale = Vector2(4, 4)
+texture = ExtResource("1_apg38")
+
+[node name="sliceDiagonalRTL" type="Node2D" parent="."]
+visible = false
+
+[node name="half1" type="CharacterBody2D" parent="sliceDiagonalRTL"]
+
+[node name="mask" type="ColorRect" parent="sliceDiagonalRTL/half1"]
+clip_children = 1
+offset_left = -19.000015
+offset_top = -180.00002
+offset_right = 121.999985
+offset_bottom = 43.999985
+rotation = 0.7853982
+
+[node name="Sprite2D" type="Sprite2D" parent="sliceDiagonalRTL/half1/mask"]
+texture_filter = 1
+position = Vector2(140.71428, 113.8442)
+rotation = -0.7853982
+scale = Vector2(4, 4)
+texture = ExtResource("1_apg38")
+
+[node name="half2" type="CharacterBody2D" parent="sliceDiagonalRTL"]
+
+[node name="mask" type="ColorRect" parent="sliceDiagonalRTL/half2"]
+clip_children = 1
+offset_left = 76.0
+offset_top = -76.0
+offset_right = 217.0
+offset_bottom = 148.0
+rotation = 0.7853982
+
+[node name="Sprite2D" type="Sprite2D" parent="sliceDiagonalRTL/half2/mask"]
+texture_filter = 1
+position = Vector2(1.0789594e-05, 107.48025)
+rotation = -0.7853982
+scale = Vector2(3.9999998, 3.9999998)
+texture = ExtResource("1_apg38")
+
+[node name="sliceDiagonalLTR" type="Node2D" parent="."]
+visible = false
+
+[node name="half1" type="CharacterBody2D" parent="sliceDiagonalLTR"]
+
+[node name="mask" type="ColorRect" parent="sliceDiagonalLTR/half1"]
+clip_children = 1
+offset_left = 82.00001
+offset_top = 82.0
+offset_right = 223.0
+offset_bottom = 306.0
+rotation = 2.3561945
+
+[node name="Sprite2D" type="Sprite2D" parent="sliceDiagonalLTR/half1/mask"]
+texture_filter = 1
+position = Vector2(1.4604291e-05, 115.96552)
+rotation = -2.3561945
+scale = Vector2(4, 4)
+texture = ExtResource("1_apg38")
+
+[node name="half2" type="CharacterBody2D" parent="sliceDiagonalLTR"]
+
+[node name="mask" type="ColorRect" parent="sliceDiagonalLTR/half2"]
+clip_children = 1
+offset_left = 181.0
+offset_top = -17.999996
+offset_right = 322.0
+offset_bottom = 206.0
+rotation = 2.3561945
+
+[node name="Sprite2D" type="Sprite2D" parent="sliceDiagonalLTR/half2/mask"]
+texture_filter = 1
+position = Vector2(140.71428, 115.25841)
+rotation = -2.3561945
+scale = Vector2(4, 4)
+texture = ExtResource("1_apg38")
+
+[node name="Area2DHorizontal" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2DHorizontal"]
+shape = SubResource("RectangleShape2D_apg38")
+
+[node name="Area2DVertical" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2DVertical"]
+rotation = 1.5707964
+shape = SubResource("RectangleShape2D_apg38")
+
+[node name="Area2DDiagonalLTR" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2DDiagonalLTR"]
+rotation = 0.7853982
+shape = SubResource("RectangleShape2D_apg38")
+
+[node name="Area2DDiagonalRTL" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2DDiagonalRTL"]
+rotation = 2.3561945
+shape = SubResource("RectangleShape2D_apg38")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
