@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://q4cbspa4rsvc"]
+[gd_scene load_steps=11 format=3 uid="uid://q4cbspa4rsvc"]
 
 [ext_resource type="Script" uid="uid://dnklehb4m3f07" path="res://scripts/main_menu/main.gd" id="1_wov6f"]
 
@@ -11,7 +11,96 @@ font_size = 40
 outline_size = 15
 outline_color = Color(0, 0, 0, 1)
 
-[node name="Starting_UI" type="Node2D"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_wov6f"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_u5m4c"]
+font_size = 400
+outline_size = 16
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_wov6f"]
+font_size = 40
+outline_size = 16
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Animation" id="Animation_wov6f"]
+resource_name = "Idle"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("flash:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_u5m4c"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("flash:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("flash:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_sq8bi"]
+resource_name = "Boom"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("flash:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("flash:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7e7s5"]
+_data = {
+&"Boom": SubResource("Animation_sq8bi"),
+&"Idle": SubResource("Animation_wov6f"),
+&"RESET": SubResource("Animation_u5m4c")
+}
+
+[node name="FruitySlicey" type="Node2D"]
 script = ExtResource("1_wov6f")
 
 [node name="StartScreen" type="CanvasLayer" parent="."]
@@ -225,13 +314,13 @@ theme_type_variation = &"FlatButton"
 [node name="InGameUI" type="CanvasLayer" parent="."]
 
 [node name="ButtonQuit" type="Node2D" parent="InGameUI"]
-position = Vector2(708, -551)
+position = Vector2(1668, 49)
 
 [node name="bg" type="ColorRect" parent="InGameUI/ButtonQuit"]
-offset_left = 983.0
-offset_top = 583.0
-offset_right = 1182.0
-offset_bottom = 689.0
+offset_left = -2.0
+offset_top = -3.0
+offset_right = 197.0
+offset_bottom = 103.0
 color = Color(0, 0, 0, 1)
 
 [node name="ColorRect" type="ColorRect" parent="InGameUI/ButtonQuit/bg"]
@@ -248,10 +337,10 @@ grow_vertical = 2
 color = Color(0.30588236, 0.75686276, 0.30588236, 1)
 
 [node name="Label" type="Label" parent="InGameUI/ButtonQuit"]
-offset_left = 989.0
-offset_top = 596.0
-offset_right = 1174.0
-offset_bottom = 686.0
+offset_left = 4.0
+offset_top = 10.0
+offset_right = 189.0
+offset_bottom = 100.0
 text = "Quit"
 label_settings = SubResource("LabelSettings_g6d6o")
 horizontal_alignment = 1
@@ -259,8 +348,79 @@ vertical_alignment = 1
 autowrap_mode = 2
 
 [node name="ButtonQuitArea" type="Button" parent="InGameUI/ButtonQuit"]
-offset_left = 986.0
-offset_top = 584.0
-offset_right = 1183.0
-offset_bottom = 685.0
+offset_left = 1.0
+offset_top = -2.0
+offset_right = 198.0
+offset_bottom = 99.0
 theme_type_variation = &"FlatButton"
+
+[node name="Game" type="Node2D" parent="."]
+
+[node name="Area2DSlash" type="Area2D" parent="Game" groups=["slash"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Game/Area2DSlash"]
+position = Vector2(-2, 0)
+shape = SubResource("CircleShape2D_wov6f")
+
+[node name="Line2D" type="Line2D" parent="Game"]
+
+[node name="Cannons" type="Node2D" parent="Game"]
+
+[node name="Cannon1" type="Node2D" parent="Game/Cannons"]
+position = Vector2(50, 1168)
+
+[node name="Cannon2" type="Node2D" parent="Game/Cannons"]
+position = Vector2(332, 1302)
+
+[node name="Cannon3" type="Node2D" parent="Game/Cannons"]
+position = Vector2(640, 1180)
+
+[node name="Cannon4" type="Node2D" parent="Game/Cannons"]
+position = Vector2(944, 1315)
+
+[node name="Cannon5" type="Node2D" parent="Game/Cannons"]
+position = Vector2(1239, 1194)
+
+[node name="Cannon6" type="Node2D" parent="Game/Cannons"]
+position = Vector2(1552, 1290)
+
+[node name="Cannon7" type="Node2D" parent="Game/Cannons"]
+position = Vector2(1867, 1268)
+
+[node name="Cannon8" type="Node2D" parent="Game/Cannons"]
+position = Vector2(2049, 415)
+
+[node name="Cannon9" type="Node2D" parent="Game/Cannons"]
+position = Vector2(-167, 402)
+
+[node name="flash" type="ColorRect" parent="Game"]
+visible = false
+offset_right = 1927.0
+offset_bottom = 1082.0
+
+[node name="LabelBoom" type="Label" parent="Game/flash"]
+layout_mode = 0
+offset_top = 3.0
+offset_right = 1921.0
+offset_bottom = 1079.0
+text = "BOOM!"
+label_settings = SubResource("LabelSettings_u5m4c")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LabelTime" type="Label" parent="Game"]
+offset_left = 29.0
+offset_top = 29.0
+offset_right = 272.0
+offset_bottom = 132.0
+text = "Time: 20"
+label_settings = SubResource("LabelSettings_wov6f")
+
+[node name="TimerGameLength" type="Timer" parent="Game"]
+wait_time = 20.0
+one_shot = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Game"]
+libraries = {
+&"": SubResource("AnimationLibrary_7e7s5")
+}
