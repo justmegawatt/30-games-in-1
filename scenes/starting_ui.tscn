@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://byjjn868xp1va"]
+
+[ext_resource type="Script" uid="uid://dnklehb4m3f07" path="res://scripts/main_menu/main.gd" id="1_lnsyb"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_lnsyb")
+
+[node name="UI" type="Node2D" parent="."]
